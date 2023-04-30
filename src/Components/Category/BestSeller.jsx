@@ -1,14 +1,15 @@
 import React from "react";
 import { BestSellerProducts } from "../../Data";
-import { TiHeartOutline } from "react-icons/ti";
+import { AiFillHeart } from "react-icons/ai";
 import Nav from "react-bootstrap/Nav";
 import { TiShoppingCart } from "react-icons/ti";
 import { useState } from "react";
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CounterSlice";
+import { addProduct, remove } from "../../Redux/HeartSlice";
+
 export default function All() {
-  let cart=   useSelector((state)=> state.cart);
-  let dispatch=useDispatch();
+  let dispatch = useDispatch();
   const [isLike, setisLike] = useState(false);
   function clicked(id) {
     setisLike(!isLike);
@@ -16,8 +17,10 @@ export default function All() {
       if (product.id == id) {
         if (isLike) {
           document.getElementById(`${id}`).style.color = "red";
+          dispatch(addProduct(product));
         } else {
           document.getElementById(`${id}`).style.color = "";
+          dispatch(remove(product));
         }
       }
     });
@@ -36,14 +39,17 @@ export default function All() {
               </div>
               <div className="d-flex">
                 <Nav.Link>
-                  <TiHeartOutline
+                  <AiFillHeart
                     id={item.id}
                     className="fs-4"
                     onClick={() => clicked(item.id)}
                   />
                 </Nav.Link>
                 <Nav.Link>
-                  <TiShoppingCart className="fs-4" onClick={()=> dispatch(addToCart(item))}/>
+                  <TiShoppingCart
+                    className="fs-4"
+                    onClick={() => dispatch(addToCart(item))}
+                  />
                 </Nav.Link>
               </div>
             </div>

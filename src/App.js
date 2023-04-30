@@ -8,6 +8,7 @@ import Register from './Components/Register/Register';
 import { Bag } from './Components/Bag/Bag';
 import { Provider } from 'react-redux';
 import store from './Redux/Store';
+import HeartBag from './Components/HeartBag/HeartBag';
 
 const routers=createHashRouter([
   {
@@ -16,7 +17,8 @@ path:'/',element:<Layout/>,children:[
   {index:true ,element:<Home/>},
   {path:'login' ,element:<Login/>},
   {path:'register' ,element:<Register/>},
-  {path:'bag' ,element:<Bag/>}
+  {path:'bag' ,element:<Bag/>},
+  {path:'heartbag' ,element:<HeartBag/>}
 ]
 }])
 

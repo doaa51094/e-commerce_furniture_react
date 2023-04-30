@@ -76,14 +76,19 @@ body {
   letter-spacing: 3px;
 }
 
-.Carousel .Carousel__layer Button {
-  color: #a97142;
-  background-color: whitesmoke;
-  border: none;
+.Carousel Button {
+  background-color: transparent;
+  border: #6d482a 2px solid;
+  padding: 10px 20px;
+  color: whitesmoke;
+}
+
+.Carousel Button:hover {
+  background-color: #6d482a;
 }
 
 #Navbar {
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.7);
 }
 
 #Navbar .Nav--light {
@@ -96,8 +101,8 @@ body {
   width: 18px;
   border-radius: 20%;
   position: absolute;
-  top: 50%;
-  left: 60%;
+  top: 43%;
+  left: 51%;
 }
 
 .FeaturedProduct__btn {
@@ -241,6 +246,29 @@ body {
 footer {
   background-color: #d2a27a;
   padding-bottom: 20px;
+  position: relative;
+}
+
+footer::after {
+  content: '';
+  display: block;
+  position: absolute;
+  -webkit-transform: rotateX(180deg);
+          transform: rotateX(180deg);
+  right: 0;
+  left: 0;
+  top: -20%;
+  z-index: 10;
+  height: 45px;
+  background-size: 45px 100%;
+  background-image: linear-gradient(135deg, #d2a27a 25%, transparent 25%), linear-gradient(225deg, #9f7e63 25%, transparent 25%);
+  background-position: 0 0;
+}
+
+@media only screen and (max-width: 1200px) {
+  footer::after {
+    display: none;
+  }
 }
 
 footer button {
@@ -326,7 +354,8 @@ footer ul li a:hover {
           box-shadow: 0 5px 5px #d0b39a;
 }
 
-#login form, #register form {
+#login form,
+#register form {
   background-color: #f4e8de;
   z-index: 20;
   width: 380px;
@@ -343,7 +372,8 @@ footer ul li a:hover {
           justify-content: center;
 }
 
-#login .form-box, #register .form-box {
+#login .form-box,
+#register .form-box {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,43 +390,52 @@ footer ul li a:hover {
   height: 440px;
 }
 
-#login .form-box .btn, #register .form-box .btn {
+#login .form-box .btn,
+#register .form-box .btn {
   border: solid 2px #6d482a;
 }
 
-#login .form-box input, #register .form-box input {
+#login .form-box input,
+#register .form-box input {
   background-color: transparent;
   border: none;
   border-bottom: 2px solid #6d482a;
 }
 
-#login .form-box input:focus, #register .form-box input:focus {
+#login .form-box input:focus,
+#register .form-box input:focus {
   outline: none;
 }
 
-#login .form-box input::-webkit-input-placeholder, #register .form-box input::-webkit-input-placeholder {
+#login .form-box input::-webkit-input-placeholder,
+#register .form-box input::-webkit-input-placeholder {
   color: #6d482a;
 }
 
-#login .form-box input:-ms-input-placeholder, #register .form-box input:-ms-input-placeholder {
+#login .form-box input:-ms-input-placeholder,
+#register .form-box input:-ms-input-placeholder {
   color: #6d482a;
 }
 
-#login .form-box input::-ms-input-placeholder, #register .form-box input::-ms-input-placeholder {
+#login .form-box input::-ms-input-placeholder,
+#register .form-box input::-ms-input-placeholder {
   color: #6d482a;
 }
 
-#login .form-box input::placeholder, #register .form-box input::placeholder {
+#login .form-box input::placeholder,
+#register .form-box input::placeholder {
   color: #6d482a;
 }
 
-#login .form-box h3, #register .form-box h3 {
+#login .form-box h3,
+#register .form-box h3 {
   color: #393939;
   font-weight: 500;
 }
 
-#login .form-box::before, #register .form-box::before {
-  content: '';
+#login .form-box::before,
+#register .form-box::before {
+  content: "";
   position: absolute;
   top: -50%;
   left: -50%;
@@ -433,19 +472,20 @@ footer ul li a:hover {
 }
 
 #Bag {
+  padding-top: 5rem;
+  padding-bottom: 9.3rem;
   background-color: #f2eee8;
-  padding-bottom: 50px;
 }
 
 #Bag .bag-img {
-  width: 100px;
+  width: 90px;
   height: 80px;
   -o-object-fit: cover;
      object-fit: cover;
 }
 
 #Bag .bag_img {
-  width: 50px;
+  width: 35px;
   -webkit-transition: all 0.5s;
   transition: all 0.5s;
 }
@@ -475,5 +515,11 @@ footer ul li a:hover {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
+}
+
+#Bag span {
+  border: solid 1px #a97142;
+  padding: 5px;
+  cursor: pointer;
 }
 /*# sourceMappingURL=style.css.map */

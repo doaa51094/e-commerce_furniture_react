@@ -1,29 +1,31 @@
 import React from "react";
 import { AllProducts } from "../../Data";
-import { TiHeartOutline } from "react-icons/ti";
-import Nav from "react-bootstrap/Nav";
 import { TiShoppingCart } from "react-icons/ti";
+import Nav from "react-bootstrap/Nav";
+import { AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
-import { useSelector,useDispatch } from 'react-redux'
+import { useDispatch } from "react-redux";
 import { addToCart } from "../../Redux/CounterSlice";
+import { addProduct, remove } from "../../Redux/HeartSlice";
 
 export default function All() {
-   let cart=   useSelector((state)=> state.cart);
-   let dispatch=useDispatch();
+  let dispatch = useDispatch();
   const [isLike, setisLike] = useState(false);
   function clicked(id) {
-    // console.log(id);
     setisLike(!isLike);
     let x = AllProducts.find((product) => {
       if (product.id == id) {
         if (isLike) {
           document.getElementById(`${id}`).style.color = "red";
+          dispatch(addProduct(product));
         } else {
           document.getElementById(`${id}`).style.color = "";
+          dispatch(remove(product));
         }
       }
     });
   }
+
   return (
     <>
       {" "}
@@ -37,15 +39,14 @@ export default function All() {
                 <h6>${item.price}</h6>
               </div>
               <div className="d-flex">
-                <Nav.Link>
-                  <TiHeartOutline
-                    id={item.id}
-                    className="fs-4"
-                    onClick={() => clicked(item.id)}
-                  />
+                <Nav.Link onClick={() => clicked(item.id)}>
+                  <AiFillHeart id={item.id} className="fs-4" />
                 </Nav.Link>
                 <Nav.Link>
-                  <TiShoppingCart className="fs-4"  onClick={()=> dispatch(addToCart(item))}/>
+                  <TiShoppingCart
+                    className="fs-4"
+                    onClick={() => dispatch(addToCart(item))}
+                  />
                 </Nav.Link>
               </div>
             </div>

@@ -2,15 +2,10 @@ import React from "react";
 import img from "../../Images/deleteIcon/delete.png";
 import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
-import {
-  clear,
-  removeFromCart,
-  increase,
-  decrease,
-} from "../../Redux/CounterSlice";
+import { remove, clear } from "../../Redux/HeartSlice";
 
-export const Bag = () => {
-  let cart = useSelector((state) => state.cart);
+function HeartBag() {
+  let cart = useSelector((state) => state.heart);
   let dispatch = useDispatch();
   const totalPrice = cart.reduce((acc, product) => {
     acc += Number(product.price * product.quantity);
@@ -19,22 +14,22 @@ export const Bag = () => {
 
   return (
     <>
+      {" "}
       <section id="Bag">
         <div className="container text-center pt-4">
-          <h1 className="fw-bolder">Shopping cart</h1>
+          <h1 className="fw-bolder">My Favorites</h1>
           <div>
             <Link to="/cat" className="text-decoration-none text-muted">
               store /{" "}
             </Link>
             <Link to="/bag" className="text-decoration-none text-muted">
-              {" "}
-              Shopping cart
+              Favorites
             </Link>
           </div>
           {cart.length == 0 ? (
             <>
               <p className="text-muted mt-5 fs-4">
-                Your shopping cart is empty
+                You haven’t favorited any items yet
               </p>
               <div className="mb-3">
                 <button className="clear_btn me-4">
@@ -52,7 +47,7 @@ export const Bag = () => {
                   <thead>
                     <tr>
                       <th scope="col">Image</th>
-                      <th scope="col">Quantity</th>
+                      <th scope="col">Name</th>
                       <th scope="col">Price</th>
                       <th scope="col">Remove Item</th>
                     </tr>
@@ -68,26 +63,12 @@ export const Bag = () => {
                           />
                           <br /> {product.Title}
                         </th>
-                        <th className="pt-4">
-                          {" "}
-                          <span
-                            onClick={() => dispatch(decrease(product))}
-                            disabled={product.quantity <= 1}
-                          >
-                            -
-                          </span>{" "}
-                          {product.quantity}{" "}
-                          <span onClick={() => dispatch(increase(product))}>
-                            +
-                          </span>
-                        </th>
-                        <th className="pt-4">
-                          ${product.price * product.quantity}
-                        </th>
+                        <th>{product.Title}</th>
+                        <th className="pt-4"> ${product.price} </th>
                         <th className="pt-4">
                           <button
                             className="border-0 bg-transparent"
-                            onClick={() => dispatch(removeFromCart(product))}
+                            onClick={() => dispatch(remove(product))}
                           >
                             <img src={img} className="bag_img" />
                           </button>
@@ -106,12 +87,6 @@ export const Bag = () => {
                     Clear
                   </button>
                 </div>
-                <div>
-                  {" "}
-                  <h2 className="fw-bolder mb-5">
-                    Total: $ {totalPrice.toFixed(2)}
-                  </h2>
-                </div>
               </div>
             </>
           )}
@@ -119,4 +94,6 @@ export const Bag = () => {
       </section>
     </>
   );
-};
+}
+
+export default HeartBag;

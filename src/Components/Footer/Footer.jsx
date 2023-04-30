@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer>
+    <footer>
         <div className="container">
           <div className="row">
             <div className="col-md-4 pt-5">
@@ -26,8 +26,17 @@ const Footer = () => {
             <div className="col-md-4 pt-5">
               <h5 className="fw-bold">SERVICES</h5>
               <ul>
+              <li>
+                  <a href="">All category</a>
+                </li>
                 <li>
                   <a href="">best seller</a>
+                </li>
+                <li>
+                  <a href="">Chairs</a>
+                </li>
+                <li>
+                  <a href="">Console</a>
                 </li>
               </ul>
             </div>
