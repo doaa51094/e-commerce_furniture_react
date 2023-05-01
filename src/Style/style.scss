@@ -7,6 +7,7 @@ $mainColor: #a97142;
 ::-webkit-scrollbar-thumb {
   background-image: linear-gradient($mainColor, #000);
 }
+
 .styleLink {
   text-decoration: none;
   color: $mainColor;
@@ -158,7 +159,7 @@ body {
   .Articles__contant {
     .brdr {
       margin: 15px 0;
-      width: 300px;
+      width: 200px;
       height: 1px;
       background-color: $mainColor;
     }

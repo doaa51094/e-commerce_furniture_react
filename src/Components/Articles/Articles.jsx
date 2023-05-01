@@ -12,7 +12,7 @@ const Articles = () => {
       <section id="Articles" className="mt-0">
         <Container>
           <div className="text-center">
-            <h2 className="py-3">Enjoy Our Articles</h2>
+            <h2 className="pb-3">Enjoy Our Articles</h2>
             <Button />
           </div>
           <Row className="mt-4">

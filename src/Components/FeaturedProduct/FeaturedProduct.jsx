@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import Slider from "react-slick";
 import { FeaturedProducts } from "../../Data";
 import Container from "react-bootstrap/Container";
@@ -30,7 +30,7 @@ const FeaturedProduct = () => {
   };
   return (
     <>
-      <section id="FeaturedProduct">
+      <section id="FeaturedProduct" className="mb-0">
         <Container>
           <div className="text-center">
             <h2 className="py-3">Enjoy Our Featured Products</h2>
@@ -42,7 +42,7 @@ const FeaturedProduct = () => {
                   key={i}
                 >
                   <div>
-                    <img src={item.image} className="mb-4 m-auto" alt="" />
+                    <img src={item.image} className=" m-auto" alt="" />
                     <h6>{item.Title}</h6>
                     <h6>${item.price}</h6>
                   </div>
