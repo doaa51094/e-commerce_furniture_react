@@ -9,7 +9,7 @@ import Room from "./Room";
 const Articles = () => {
   return (
     <>
-      <section id="Articles" className="py-5">
+      <section id="Articles" className="mt-0">
         <Container>
           <div className="text-center">
             <h2 className="py-3">Enjoy Our Articles</h2>

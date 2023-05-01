@@ -22,7 +22,7 @@ const Section3 = () => {
             </Col>
             <Col lg={8}>
               <div className=" p-5">
-                <img src={product4} className="w-100 h-100" alt="" />
+                <img src={product4} className="w-100" alt="" />
               </div>
             </Col>
           </Row>
