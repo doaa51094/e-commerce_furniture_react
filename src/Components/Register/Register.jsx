@@ -28,7 +28,7 @@ function Register() {
       user
     );
     console.log(data);
-    if (data.message == "success") {
+    if (data.message === "success") {
       isLoading(false);
       navigate("/login");
     } else {
@@ -91,12 +91,12 @@ function Register() {
                       name="userName"
                     />
                     {errorList.filter(
-                      (err) => err.context.label == "userName"
+                      (err) => err.context.label === "userName"
                     )[0] ? (
                       <p className="text-danger mb-0">
                         {
                           errorList.filter(
-                            (err) => err.context.label == "userName"
+                            (err) => err.context.label === "userName"
                           )[0]?.message
                         }
                       </p>
@@ -114,12 +114,12 @@ function Register() {
                       name="email"
                     />
                     {errorList.filter(
-                      (err) => err.context.label == "email"
+                      (err) => err.context.label === "email"
                     )[0] ? (
                       <p className="text-danger mb-0">
                         {
                           errorList.filter(
-                            (err) => err.context.label == "email"
+                            (err) => err.context.label === "email"
                           )[0]?.message
                         }
                       </p>
@@ -137,12 +137,12 @@ function Register() {
                       name="password"
                     />
                     {errorList.filter(
-                      (err) => err.context.label == "password"
+                      (err) => err.context.label === "password"
                     )[0] ? (
                       <p className="text-danger mb-0">
                         {
                           errorList.filter(
-                            (err) => err.context.label == "password"
+                            (err) => err.context.label === "password"
                           )[0]?.message
                         }
                       </p>
@@ -152,7 +152,7 @@ function Register() {
                   </div>
                   <div className="w-100">
                     <button className="btn w-75" type="submit">
-                      {loading == true ? (
+                      {loading === true ? (
                         <i className="fas  fa-spinner fa-spin"></i>
                       ) : (
                         "Sign Up"

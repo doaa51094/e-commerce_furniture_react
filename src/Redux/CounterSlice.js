@@ -2,10 +2,9 @@ import { createSlice } from "@reduxjs/toolkit";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
-const localStorageData = localStorage.getItem("cartitems");
+
 const items = localStorage.getItem("cartitems")
-  ? JSON.parse(localStorage.getItem("cartitems"))
-  : [];
+  ? JSON.parse(localStorage.getItem("cartitems")): [];
 // alert when add new product
 const notify = () => {
   toast.success("A new product has been added to your cart", {
@@ -26,7 +25,7 @@ export const productsSlice = createSlice({
   reducers: {
     addToCart: (state, action) => {
       const findProduct = state.find(
-        (product) => product.id == action.payload.id
+        (product) => product.id === action.payload.id
       );
       notify();
       if (findProduct) {
@@ -39,7 +38,7 @@ export const productsSlice = createSlice({
     },
     removeFromCart: (state, action) => {
       const nextCartItems = state.filter(
-        (product) => product.id != action.payload.id
+        (product) => product.id !== action.payload.id
       );
       localStorage.setItem("cartitems", JSON.stringify(nextCartItems));
       return nextCartItems;
@@ -60,8 +59,8 @@ export const productsSlice = createSlice({
     },
     decrease: (state, action) => {
       state = state.map((product) => {
-        if (product.quantity == 0) {
-          return;
+        if (product.quantity === 0) {
+          return [];
         }
         if (product.id === action.payload.id) {
           localStorage.setItem("cartitems", JSON.stringify(state));
@@ -74,6 +73,5 @@ export const productsSlice = createSlice({
   },
 });
 
-export const { addToCart, removeFromCart, clear, increase, decrease } =
-  productsSlice.actions;
+export const { addToCart, removeFromCart, clear, increase, decrease } = productsSlice.actions;
 export default productsSlice.reducer;

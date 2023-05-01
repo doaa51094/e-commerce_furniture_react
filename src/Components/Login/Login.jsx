@@ -27,7 +27,7 @@ function getUserData(e){
 async function sendRegisterData() {
  let{data}= await axios.post(`https://userapi-5mf0.onrender.com/user/login`,user);
  console.log(data);
- if(data.message=='success'){
+ if(data.message==='success'){
   isLoading(false);
   navigate('/');
  
@@ -92,7 +92,7 @@ function ValidateRegisterForm() {
                       className="pe-5"
                       name="email"
                     />
-                      {errorList.filter((err)=> err.context.label=="email")[0]? <p className="text-danger mb-0">{errorList.filter((err)=> err.context.label=="email")[0]?.message}</p>:''}
+                      {errorList.filter((err)=> err.context.label==="email")[0]? <p className="text-danger mb-0">{errorList.filter((err)=> err.context.label==="email")[0]?.message}</p>:''}
                   </div>
                   <div className="mb-5 p-1">
                     {" "}
@@ -103,11 +103,11 @@ function ValidateRegisterForm() {
                       className="pe-5"
                       name="password"
                     />
-                      {errorList.filter((err)=> err.context.label=="password")[0]? <p className="text-danger mb-0">{errorList.filter((err)=> err.context.label=="password")[0]?.message}</p>:''}
+                      {errorList.filter((err)=> err.context.label==="password")[0]? <p className="text-danger mb-0">{errorList.filter((err)=> err.context.label==="password")[0]?.message}</p>:''}
                   </div>
                   <div className="w-100">
                     <button className="btn w-75" type="submit">
-                      {loading == true ? <i className="fas  fa-spinner fa-spin"></i>:'Login'}
+                      {loading === true ? <i className="fas  fa-spinner fa-spin"></i>:'Login'}
                       </button>
                   </div>
                 </form>

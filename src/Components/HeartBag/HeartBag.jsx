@@ -7,10 +7,6 @@ import { remove, clear } from "../../Redux/HeartSlice";
 function HeartBag() {
   let cart = useSelector((state) => state.heart);
   let dispatch = useDispatch();
-  const totalPrice = cart.reduce((acc, product) => {
-    acc += Number(product.price * product.quantity);
-    return acc;
-  }, 0);
 
   return (
     <>
@@ -26,10 +22,10 @@ function HeartBag() {
               Favorites
             </Link>
           </div>
-          {cart.length == 0 ? (
+          {cart.length === 0 ? (
             <>
               <p className="text-muted mt-5 fs-4">
-                You haven’t favorited any items yet
+                You have not favorited any items yet
               </p>
               <div className="mb-3">
                 <button className="clear_btn me-4">
@@ -70,7 +66,7 @@ function HeartBag() {
                             className="border-0 bg-transparent"
                             onClick={() => dispatch(remove(product))}
                           >
-                            <img src={img} className="bag_img" />
+                            <img src={img} className="bag_img" alt=''/>
                           </button>
                         </th>
                       </tr>

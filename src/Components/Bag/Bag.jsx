@@ -31,7 +31,7 @@ export const Bag = () => {
               Shopping cart
             </Link>
           </div>
-          {cart.length == 0 ? (
+          {cart.length === 0 ? (
             <>
               <p className="text-muted mt-5 fs-4">
                 Your shopping cart is empty
@@ -89,7 +89,7 @@ export const Bag = () => {
                             className="border-0 bg-transparent"
                             onClick={() => dispatch(removeFromCart(product))}
                           >
-                            <img src={img} className="bag_img" />
+                            <img src={img} className="bag_img" alt=''/>
                           </button>
                         </th>
                       </tr>

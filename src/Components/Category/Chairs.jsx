@@ -14,7 +14,7 @@ export default function Chairs() {
   function clicked(id) {
     setisLike(!isLike);
     let x = chairs.find((product) => {
-      if (product.id == id) {
+      if (product.id === id) {
         if (isLike) {
           document.getElementById(`${id}`).style.color = "red";
           dispatch(addProduct(product));

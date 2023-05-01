@@ -1,7 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import "react-toastify/dist/ReactToastify.css";
 
-const localStorageData = localStorage.getItem("heartitems");
+
 const items = localStorage.getItem("heartitems")
   ? JSON.parse(localStorage.getItem("heartitems"))
   : [];
@@ -12,7 +12,7 @@ export const heartSlice = createSlice({
   reducers: {
     addProduct: (state, action) => {
       const findProduct = state.find(
-        (product) => product.id == action.payload.id
+        (product) => product.id === action.payload.id
       );
       if (findProduct) {
         findProduct.quantity += 1;
@@ -24,7 +24,7 @@ export const heartSlice = createSlice({
     },
     remove: (state, action) => {
       const nextCartItems = state.filter(
-        (product) => product.id != action.payload.id
+        (product) => product.id !== action.payload.id
       );
       localStorage.setItem("heartitems", JSON.stringify(nextCartItems));
       return nextCartItems;

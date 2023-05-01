@@ -10,16 +10,20 @@ const Footer = () => {
               <h5 className="fw-bold">CONNECT</h5>
               <ul>
                 <li>
-                  <a href="#">Facebook</a>
+                Facebook
+                
                 </li>
                 <li>
-                  <a href="#">Instagram</a>
+                Instagram
+                
                 </li>
                 <li>
-                  <a href="#">Twitter</a>
+                Twitter
+                 
                 </li>
                 <li>
-                  <a href="#">YouTube</a>
+                YouTube
+                 
                 </li>
               </ul>
             </div>
@@ -27,16 +31,20 @@ const Footer = () => {
               <h5 className="fw-bold">SERVICES</h5>
               <ul>
               <li>
-                  <a href="">All category</a>
+              All category
+                 
                 </li>
                 <li>
-                  <a href="">best seller</a>
+                best seller
+                  
                 </li>
                 <li>
-                  <a href="">Chairs</a>
+                Chairs
+                 
                 </li>
                 <li>
-                  <a href="">Console</a>
+                Console
+                
                 </li>
               </ul>
             </div>
