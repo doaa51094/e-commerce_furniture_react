@@ -25,7 +25,7 @@ const Slider = () => {
             <h1 className="pt-1">VONICANNA</h1>
             <h3 className="pt-5">The Comfortable Home</h3>
             <div className=" d-flex justify-content-center mt-4">
-            <Link className="" to="cat"><button>See More</button></Link>
+            <Link className="" to="cat"><button>See here</button></Link>
             </div>
            
           </div>
